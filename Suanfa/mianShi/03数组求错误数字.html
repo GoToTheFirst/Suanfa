@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var findErrorNums = function(nums) {
+				let target = 0; // 缺失
+				let re = 0;
+				let que = 0;
+				let flag = [];
+				for (let i = 0; i < nums.length; i++) {
+					// if (nums[i] != i+1) { // 缺失的值
+					// 	target = i;
+					// 	break;
+					// }else{ // 重复值记录
+					// 	flag[i] = 1;
+					// }
+					if (flag[nums[i]] == 1) { // 此处为重复值
+						re = nums[i];
+					} else {
+						flag[nums[i]] = 1;
+					}
+				}
+				console.log(flag)
+				// 寻找缺失的值
+				for (let i = 1; i < flag.length+1; i++) {
+					if (flag[i] != 1) {
+						que = i;
+						break;
+					}
+				}
+				// let res = [nums[target], nums[target] + 1];
+				let res = [re, que];
+				return res;
+			};
+			let nums = [1, 2, 2, 4];
+			// nums = [1,1]
+			console.log(findErrorNums(nums));
+		</script>
+	</head>
+	<body>
+		数组错误
+	</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function TreeNode(x, left, right) {
+				this.val = x;
+				this.left = left || null;
+				this.right = right || null;
+			}
+
+
+			/**
+			 * 
+			 * @param root TreeNode类 the root of binary tree
+			 * @return int整型二维数组
+			 */
+			// function beforeRead(root){
+			// 	let arr = [];
+			// 	arr.push(root.val);
+			// 	beforeRead(root.left);
+			// 	beforeRead(root.right);
+			// }
+			function threeOrders(root) {
+				// write code here
+				let arrBefore = [];
+				let arrMid = [];
+				let arrBeh = [];
+
+				function beforeRead(root) {
+					console.log(root.val);
+					arrBefore.push(root.val);
+					if (root.left != null) {
+						beforeRead(root.left);
+					}
+					if (root.right) {
+						beforeRead(root.right);
+					}
+				};
+
+				function arrMidRead(root) {
+					if (root.left != null) {
+						arrMidRead(root.left);
+					}
+					arrMid.push(root.val);
+					if (root.right) {
+						arrMidRead(root.right);
+					}
+				}
+
+				function behRead(root) {
+					if (root.left != null) {
+						behRead(root.left);
+					}
+					if (root.right) {
+						behRead(root.right);
+					}
+					arrBeh.push(root.val);
+				}
+				beforeRead(root);
+				arrMidRead(root);
+				behRead(root);
+				let res = [arrBefore, arrMid, arrBeh];
+				return res;
+			}
+			let left = new TreeNode(2);
+			let right = new TreeNode(3);
+			let root = new TreeNode(1, left, right);
+			console.log(root.right);
+			// root.left = left;
+			// root.right = right;
+
+			console.log(threeOrders(root))
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

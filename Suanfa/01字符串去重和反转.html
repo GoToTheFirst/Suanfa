@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>编程狮(w3cschool.cn)</title>
+		<script type="text/javascript">
+			var str = 'CanvasRenderingContext2D';
+			// 字符串去重，返回新的不重复字符串，假设变量名是str2
+			var strArr = str.split("");
+			console.log(strArr);
+			var flag = [];
+			var str2 = "";
+			for (var i = 0; i < strArr.length; i++) {
+				if (flag[strArr[i]] != 1) {
+					flag[strArr[i]] = 1;
+				} else {
+					strArr[i] = "";
+				}
+			}
+			for (var i = 0; i < strArr.length; i++) {
+				str2 += strArr[i];
+			}
+			console.log(str2);
+
+			// 字符串反向排列，返回str2的反向排列字符串，假设变量名是str3
+			var strArr2 = str2.split("");
+			console.log(strArr2.length);
+			var str3 = "";
+			var l = 0,
+				r = strArr2.length - 1;
+			while (l < r) {
+				var temp = strArr2[l];
+				strArr2[l] = strArr2[r];
+				strArr2[r] = temp;
+				l++;
+				r--;
+			}
+			for (var i = 0; i < strArr2.length; i++) {
+				str3 += strArr2[i];
+			}
+			console.log(str3);
+
+			// 返回str3字符串中大写字母的个数。
+			var reg = /[A-Z]/;
+			var count = 0;
+			for (var i = 0; i < strArr.length; i++) {
+				if (reg.test(strArr[i])) {
+					count++;
+				}
+			}
+			console.log(count);
+		</script>
+
+	</head>
+	<body>
+
+
+	</body>
+</html>

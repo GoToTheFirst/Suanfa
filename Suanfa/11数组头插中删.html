@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let data = [{
+				id: '1',
+				username: '张三'
+			}, {
+				id: '233',
+				username: '周五'
+			}, {
+				id: '2',
+				username: '李四'
+			}, {
+				id: '3',
+				username: '王二'
+			}];
+
+			// 请实现，如果数组中有id值是'233'的数据项，
+			// 则将此数组项在数组中置顶（数组第1位），如果没有匹配的数组项，则数组顺序不变。
+
+			for (let i = 0; i < data.length; i++) {
+				// console.log(data[i].id);
+				if (data[i].id == '233') {
+					// data.unshift(data[i]);  //在首位添加
+					data.splice(0,0,data[i]);  //在首位添加
+					console.log(data);
+					data.splice(i+1, 1);
+					console.log(data);
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

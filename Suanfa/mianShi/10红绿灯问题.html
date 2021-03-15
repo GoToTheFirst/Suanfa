@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let flag = "";
+			function callback(){
+			    setTimeout(function(){
+			        flag = "红";
+			        console.log(flag);
+			        // calltest();
+					callback2();
+			    },5000);
+			    
+			}
+			
+			function callback2(){
+			    setTimeout(function(){
+			        flag = "黄";
+			        console.log(flag);
+			        callback3();
+			    },3000);
+			   
+			}
+			
+			function callback3(){
+			    setTimeout(function(){
+			        flag = "绿";
+			        console.log(flag);
+			        callback();
+			    },10000);
+			    
+			}
+			
+			// callback();
+			
+			
+			// 睡眠函数,
+			function sleep(mill){
+				let now = new Date();
+				let exitTime = now.getTime() + mill;
+				// console.log(now.getTime());
+				while(true){
+					// console.log('zhixing');
+					now = new Date();
+					if(now.getTime() > exitTime){
+						return;
+					}
+				}
+			}
+			
+			// sleep(5000);
+			console.log("1111111111111");
+			
+			// 睡眠函数promise实现
+			let sleep1 = (time) => {
+				return new Promise(
+					(reslove) => {
+						setTimeout(reslove, time);
+					}
+				)
+			}
+			sleep1(5000).then(()=>{
+				console.log('111111111111')
+			})
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

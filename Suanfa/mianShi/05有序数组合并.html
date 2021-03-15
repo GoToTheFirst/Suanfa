@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function merge(A, m, B, n) {
+				// write code here
+				let min = m < n ? m : n;
+				let al = 0,
+					bl = 0;
+				let res = [];
+				while (al < m && bl < n) {
+					if (A[al] < B[bl]) {
+						res.push(A[al]);
+						al++;
+					} else {
+						res.push(B[bl]);
+						bl++;
+					}
+				}
+				while (al < m) {
+					res.push(A[al]);
+					al++;
+				}
+				while (bl < n) {
+					res.push(B[bl]);
+					bl++;
+				}
+				// return res;
+				A = res;
+				console.log(A);
+			}
+
+			// let A = [3, 5, 9, 15];
+			let A = [];
+			let B = [1];
+
+			console.log(merge(A, A.length, B, B.length));
+			console.log(merge([], 0, B, B.length));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

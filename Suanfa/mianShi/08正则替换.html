@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function fun(s, arr) {
+				let arrAll = s.split(',');
+				console.log(arr)
+				let res = arrAll[0];
+				let reg = /{{\$[0-9]}}/;
+				
+				let i = 0;
+				while (reg.test(res)) {
+					res = res.replace(reg, arr[i]);
+					i++;
+				}
+				console.log(res);
+			}
+			console.log('---------');
+			fun("<div>{{$0}}({{$1}})</div>", ["好未来", "Tal"]);
+
+			let reg = /{{\$[0-9]}}/;
+			let str = "<div>{{$0}}({{$1}})</div>";
+			console.log(str.match(reg)[0]);
+			str.search(reg)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

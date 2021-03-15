@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function TreeNode(x, left, right) {
+				this.val = x;
+				this.left = left || null;
+				this.right = right || null;
+			}
+
+			function zigzagLevelOrder(root) {
+				// write code here
+				let Q = [];
+				function levelOrder(root) {
+					Q.push(root);
+					let i = 0;
+					while (i < Q.length) {
+						if (Q[i].left == null) {
+							Q.push('#');
+						} else {
+							Q.push(root.left);
+						}
+						if (Q[i].right != null) {
+							Q.push(root.right);
+						} else {
+							Q.push('#');
+						}
+						i++;
+						while (Q[i] == '#') i++;
+					}
+				}
+				levelOrder(root)
+				
+				let arr = [];
+				let count = 1;
+				let res = [];
+				res.push([Q[0].val])
+				for(let i = 1; i<Q.length; i++){
+					if(Q[i] == '#') continue;
+					arr.push(Q[i].val);
+					if(i == Math.pow(2, count)){
+						res.push(arr);
+						count++;
+						arr=[];
+					}
+				}
+				return res;
+			}
+
+			let left = new TreeNode(2);
+			let right = new TreeNode(3);
+			let root = new TreeNode(1, null, right);
+			console.log(zigzagLevelOrder(root));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// 如果当前URL地址是：https://www.yuewen.com#aaa，
+			// 则处理后的URL地址是：https://www.yuewen.com?uid=1#aaa
+			// 如果当前URL地址是：https://www.yuewen.com?f=qidian ，
+			// 则处理后的URL地址是：https://www.yuewen.com?f=qidian&uid=1
+			// 如果当前URL地址是：https://www.yuewen.com?uid=2 ，
+			// 则处理后的URL地址是：https://www.yuewen.com?uid=1
+			let str = "https://www.yuewen.com?uid=1?para=456#aaa";
+			let url = new URL(str);
+			let params = new URLSearchParams(location.search)
+			params.set('userid', 1)
+			console.log(params.toString())
+			let hash = location.hash;
+			console.log(location.href.split('?')[0] + '?' + params.toString() + hash);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

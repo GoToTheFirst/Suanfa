@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			let data = [{
+				userId: '001',
+				userName: '张三(zhangsan)'
+			}, {
+				userId: '002',
+				userName: '李四(lisi)'
+			}, {
+				userId: '003',
+				userName: '王二(wanger)'
+			}, {
+				userId: '004',
+				userName: '麻子(mazi)'
+			}];
+			// 请实现数组按照数组项中userName中的姓名拼音排序。
+			data = data.sort((objA, objB) => {
+				return (objA.userName.split('(')[1] > objB.userName.split('(')[1]) ? 1 : -1;
+			});
+			console.log(data);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

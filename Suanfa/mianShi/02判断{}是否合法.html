@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var text = "{{}}{}";
+
+			// function isTrue(str) {
+			// 	let arr = str.split('');
+			// 	console.log(arr)
+			// 	let count = 0;
+			// 	for (let i = 0; i < arr.length; i++) {
+			// 		if (arr[i] == '{') {
+			// 			count++;
+			// 		}
+			// 		if (arr[i] == '}') {
+			// 			count--;
+			// 		}
+			// 		console.log(count);
+			// 	}
+			// 	if (count == 0) return true;
+			// 	else return false;
+			// }
+			// isTrue(text)
+			// console.log(isTrue(text))
+			
+			
+			function isTrue2(str){
+				let arr = [];
+				for(let i=0; i<str.length; i++){
+					if(str[i]=='{'){
+						arr.push('{')
+					}
+					if(str[i]=='}'){
+						if(arr.length == 0){
+							return false
+						} else{
+							arr = arr.slice(0, arr.length-1)
+						}
+						
+					}
+				}
+				
+			}
+			
+			// isTrue2(text)
+			console.log(isTrue2("{}}"))
+			
+		</script>
+	</head>
+	<body>
+		ceshi
+	</body>
+</html>

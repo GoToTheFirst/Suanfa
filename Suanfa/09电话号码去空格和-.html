@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// let tel ='132 0803 3621';
+			// 或者是短横线：
+			// let tel ='132-0803-3621';
+			// 或是其他的连接字符。
+			
+			// 然后空格或短横线的位置也不固定，例如可能是下面这样：
+			let tel ='132 080 33621';
+
+			// let tel ='132-0803-3621';
+			// 分割为字符
+			let telArr = tel.split("");
+			let reg = /[0-9]/;
+			for(let i=0;i<telArr.length;i++){
+				if(!reg.test(telArr[i])) telArr[i] = "";
+			}
+			tel = telArr.join("");
+			console.log(tel);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

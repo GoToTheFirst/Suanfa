@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// 1. 写一个名为toCamelCase的方法，实现把类似'abc-def-ghi'的字符转换成'abcDefGhi'。
+			function toCamelCase(str) {
+				let strArr = str.split("");
+				let reg = /[a-z]/
+				let res = "";
+				for (let i = 0; i < strArr.length; i++) {
+					if (strArr[i] == "-") {
+						strArr[i++] = "";
+						strArr[i] = strArr[i].toUpperCase();
+					}
+				}
+				for (let i = 0; i < strArr.length; i++) {
+					res += strArr[i];
+				}
+				return res;
+			}
+
+			console.log(toCamelCase('abc-def-ghi'));
+			// 2. 写一个名为toDashJoin的方法，
+			// 实现把驼峰形式字符串'abcDefGhi'转换成'abc-def-ghi'。
+			function toDashJoin(str) {
+				let strArr = str.split("");
+				let res = "";
+				let reg = /[A-Z]/;
+				for (let i = 0; i < strArr.length; i++) {
+					if (reg.test(strArr[i])){
+						strArr[i] = "-"+strArr[i].toLowerCase();
+					}
+				}
+				for (let i = 0; i < strArr.length; i++) {
+					res += strArr[i];
+				}
+				return res;
+			}
+			
+			console.log(toDashJoin("abcDefGhi"));
+
+			// 3. 写一个名为toCapitalize的方法，实现首字母大写功能
+			//（原来字母就是大写的不处理），如'i like css'转换成'I Like Css'。
+			function toCapitalize(str){
+				let reg = new RegExp("\\s");
+				let reg1 = /[a-z]/;
+				let strArr = str.split(reg);
+				// console.log(strArr);
+				for (let i = 0; i < strArr.length; i++) {
+					if(reg1.test(strArr[i][0])){
+						// console.log(strArr[i][0].toUpperCase());
+						strArr[i] = strArr[i].replace(strArr[i][0], strArr[i][0].toUpperCase());
+					}
+				}
+				
+				res = strArr.join(" ");
+				// console.log(res);
+				return res;
+			}
+			console.log(toCapitalize('i like css'));
+			// 4. 写一个名为toBetterUrl的方法，实现把类似'CSS value type'转换
+			// 成'css-value-type'（只需考虑空格和大小写处理）。
+			function toBetterUrl(str){
+				// 全转小写
+				str = str.toLowerCase();
+				// 全局替换空格
+				let reg = /\s+/g;
+				str = str.replace(reg, "-");
+				return str;
+				// console.log(str);
+			}
+			console.log(toBetterUrl('CSS       value type'));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

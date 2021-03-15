@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>编程狮(w3cschool.cn)</title>
+
+		<script type="text/javascript">
+			let arr = [1, 2, , 3];
+
+			// 1. arr的长度是多少？
+			console.log(arr.length);
+
+			// 2. 去除arr中的空数组项;
+			var arr2 = [];
+			var j = 0;
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i] != undefined) {
+					arr2[j++] = arr[i];
+				}
+			}
+			console.log(arr2);
+
+			// 3. arr2 = arr.map(parseInt)，请写下arr2的内容;
+			// arr.map(parseInt)  意思是 对数组中的每个元素执行 parseInt(val, index); 
+			// 即第一个参数传值第二个参数传索引下标，将val转换为index进制数
+			arr2 = arr.map(parseInt);
+			console.log(arr2); // [1, NaN,, NaN]
+
+			// 4. arr和arr2合并成数组arr3。
+			var arr3 = arr.concat(arr2);
+			console.log(arr3);
+
+			// 5. 去除数组arr3中重复内容
+			var flag = [];
+			var arr4 = [];
+			var j = 0
+			for (var i = 0; i < arr3.length; i++) {
+				if (flag[arr3[i]] != 1) {
+					arr4[j++] = arr3[i];
+					flag[arr3[i]] = 1;
+				}
+			}
+			console.log(arr4);
+		</script>
+
+	</head>
+	<body>
+
+
+	</body>
+</html>

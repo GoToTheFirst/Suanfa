@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function test(arr) {
+				let a = 0; // 上
+				let x = 0; //左边
+				let m = arr[0].length - 1; // 右边
+				let n = arr.length - 1; //下边
+				let res = [];
+				while (a <= n || x <= m) {
+					console.log(a + m + n + x);
+					for (let i = x; i <= m; i++) {
+						res.push(arr[a][i]);
+					}
+					a++;
+					for (let i = a; i <= n; i++) {
+						res.push(arr[i][m]);
+					}
+					m--;
+					for (let i = m; i >= x; i--) {
+						console.log(n + '*/******' + i)
+						res.push(arr[n][i]);
+					}
+					n--;
+					for (let i = n; i >= a; i--) {
+						console.log(i + '---' + x)
+						res.push(arr[i][x]);
+					}
+					x++;
+				}
+				// console.log(res);
+				return res;
+			}
+			var arr = [
+				[1, 2, 3, 4, 5],
+				[16, 17, 18, 19, 6],
+				[15, 24, 25, 20, 7],
+				[14, 23, 22, 21, 8],
+				[13, 12, 11, 10, 9],
+			]
+			test(arr)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

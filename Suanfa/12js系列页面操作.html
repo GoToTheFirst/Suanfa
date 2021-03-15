@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			a {
+				display: block;
+			}
+
+			h1 {
+				background: url(./img/1.jpg);
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function() {
+				// 1. 请使用JS代码获得<h1>标签里面的文字内容;
+				let h = document.getElementsByTagName("h1");
+				let h1Content = h[0].innerText;
+				console.log(h1Content);
+				// 2. 请使用JS代码获得类名为.active元素的accesskey属性值;
+				let active = document.getElementsByClassName("active")[0];
+				console.log(active.getAttribute("accesskey"));
+				console.log(active.accessKey); // 直接accessKey也可以
+				// 3. 请使用JS代码获得<header>元素的高度（包括border大小）;
+				let header = document.getElementsByTagName('header')[0];
+				console.log(header.offsetHeight);
+
+				// 4. 请使用JS代码获得<h1>元素的背景图片;
+				let img = getComputedStyle(h[0]).backgroundImage;
+				// let img = getComputedStyle(document.querySelector('h1')).backgroundImage;
+				console.log(img);
+				// 5. 请使用JS判断<header>元素是否在浏览器窗口内;
+				let ht = h[0].getBoundingClientRect();
+				console.log(ht); // 然后看 bound.top/right/bottom/left值是否是正值
+
+				// 6. 请使用JS在<nav>元素后面插入<a href accesskey="4">导航4</a>结构;
+				let nav = document.getElementsByTagName('nav')[0];
+				nav.innerHTML += '<a href accesskey="4">导航4</a>';
+				nav.insertAdjacentHTML('beforeend', '<a href accesskey="4">导航4</a>');
+				// 7. 请使用JS删除.logo类名对应的DOM元素;
+				let logo = document.getElementsByClassName("logo")[0];
+				// 一下三者皆可以
+				logo.remove();
+				// logo.parentNode.removeChild(logo);
+				// logo.parentElement.removeChild(logo);
+				// 8. 请使用JS实现点击页面上任意链接都不刷新;
+				// document.onclick = function(){
+				// 	return false;
+				// }
+				document.addEventListener('click', function(event) {
+					// 只要能判断是链接元素即可，例如 event.tagret.tagName == 'A'，
+					// 或者 event.target.closest('a') 等
+					if (event.target.matches('a')) {
+						event.preventDefault();
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+
+		<header>
+			<a href="./" class="logo">
+				<h1>hr门户系统</h1>
+			</a>
+			<nav>
+				<a href accesskey="1">导航1</a>
+				<a href class="active" accesskey="2">导航2</a>
+				<a href accesskey="3">导航3</a>
+			</nav>
+		</header>
+	</body>
+</html>

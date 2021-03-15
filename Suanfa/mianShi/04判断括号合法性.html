@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			function isValid(s) {
+				// write code here
+				let arr = [];
+				for (let i = 0; i < s.length; i++) {
+					// console.log(i+'---'+s[i]);
+					// console.log(arr)
+					if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
+						arr.push(s[i]);
+						
+					} else {
+						switch (s[i]) {
+							case ')':
+								if(arr[arr.length-1] == '('){
+									arr.pop()
+								}else{
+									return false;
+								}
+								break;
+							case ']':
+								if(arr[arr.length-1] == '['){
+									arr.pop()
+								}else{
+									return false;
+								}
+								break;
+							case '}':
+								if(arr[arr.length-1] == '{'){
+									arr.pop()
+									// console.log('-----')
+								}else{
+									return false;
+								}
+								break;
+							default:
+								// break;
+						}
+						// if(s[i] = '(' && arr[arr.length-1] == ')'){
+						// 	s.pop();
+						// }
+					}
+				}
+				if(arr.length == 0){
+					return true;
+				}else{
+					return false;
+				}
+				// console.log("arr");
+				
+			}
+			
+			console.log(isValid("{} []()"))
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
